@@ -10,7 +10,7 @@
  *   写 tailnet IP（100.x.y.z）则直连——两种都支持。
  *
  * 环境变量：
- *   LIFEUP_TARGETS  主备目标列表，默认 "192.168.101.12"（纯局域网回落）
+ *   LIFEUP_TARGETS  主备目标列表，默认 "192.168.1.100"（纯局域网回落）
  *   LIFEUP_SOCKS    SOCKS5 地址，默认 "127.0.0.1:1055"
  *   LIFEUP_LISTEN   本地监听端口，默认 13276
  */
@@ -19,7 +19,7 @@ import { SocksClient } from 'socks'
 
 const LISTEN = Number(process.env.LIFEUP_LISTEN || 13276)
 const [SOCKS_HOST, SOCKS_PORT] = (process.env.LIFEUP_SOCKS || '127.0.0.1:1055').split(':')
-const TARGETS = (process.env.LIFEUP_TARGETS || '192.168.101.12')
+const TARGETS = (process.env.LIFEUP_TARGETS || '192.168.1.100')
   .split(',').map(s => s.trim()).filter(Boolean)
 
 const log = (...a) => console.log(new Date().toISOString(), ...a)
